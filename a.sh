@@ -1,3 +1,5 @@
+docker-compose -f phps/docker-compose.yml build phps
+docker-compose -f baseapp/docker-compose.yml build baseapp
 docker-compose -f traefik/docker-compose.yml up -d
 docker-compose -f whoami/docker-compose.yml up -d
 docker-compose -f whoami2/docker-compose.yml up -d
