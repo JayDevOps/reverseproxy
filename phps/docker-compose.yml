@@ -3,6 +3,8 @@ version: '3.5'
 services:
   phps:
     # The official v2.0 Traefik docker image
+    build:
+      context: .
     image: testapps/phps:latest
     networks:
       - web
