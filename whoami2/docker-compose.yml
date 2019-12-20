@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  whoami:
+    # The official v2.0 Traefik docker image
+    image: containous/whoami
+    networks:
+      - web
+    labels:
+      - "traefik.http.routers.whoami2.rule=Host(`test-apps2.mytestapp.com`)"
+
+networks:
+  web:
+    external:
+      name: traefik_default

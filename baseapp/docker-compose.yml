@@ -1,0 +1,21 @@
+# ...
+version: "3.5"
+services:
+  baseapp:
+    build:
+      context: .
+    image: testapps/baseapp:latest
+    container_name: "baseapp"
+    networks:
+      - web
+    labels:
+      - "traefik.backend=baseapp"
+      - "traefik.enable=true"
+      - "traefik.http.routers.phps.rule=Host(`test-apps4.mytestapp.com`) && Path(`/appa`)"
+      - "traefik.port=80"
+      - "traefik.docker.network=reverseproxy"
+
+networks:
+  web:
+    external:
+      name: traefik_default

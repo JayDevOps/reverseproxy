@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  app3:
+    # The official v2.0 Traefik docker image
+    image: testapps/phps:latest
+    networks:
+      - web
+    labels:
+      - "traefik.http.routers.phps.rule=Host(`test-apps4.mytestapp.com`) && Path(`/app3`)"
+
+networks:
+  web:
+    external:
+      name: traefik_default
